@@ -1,0 +1,131 @@
+/* Replacement for slick-carousel/slick/slick-theme.css */
+
+.slick-track {
+  display: flex !important;
+  /* height: 100%; */
+}
+
+.slick-slide {
+  height: inherit !important;
+  margin: 1.5rem 0.3rem;
+}
+.hero-slick .slick-slide {
+  transition: all 600ms ease-in-out;
+}
+
+.slick-prev,
+.slick-next {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  height: 30px;
+  width: 30px;
+  font-size: 30px;
+  fill: #a0aec0;
+  color: #a0aec0;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  fill: red;
+}
+
+.slick-prev {
+  left: -15px;
+}
+.slick-next {
+  right: -15px;
+}
+
+.slick-dots {
+  position: absolute;
+  list-style: none;
+  display: block;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  top: -4rem;
+  bottom: 100%;
+  padding-top: 0.5rem;
+  text-align: right;
+}
+.hero-slick-dots {
+  position: absolute;
+  list-style: none;
+  display: block;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  bottom: 4rem;
+  padding-top: 0.5rem;
+  text-align: left;
+}
+
+.slick-dots li,
+.hero-slick-dots li {
+  position: relative;
+  display: inline-block;
+  height: 5px;
+  width: 5px;
+  margin: 0 20px 0 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.slick-dots li button,
+.hero-slick-dots li button {
+  border: 0;
+  background: transparent;
+  display: block;
+  outline: none;
+  cursor: pointer;
+  outline: none;
+  font-size: 0px;
+  line-height: 0px;
+  width: 12px;
+  height: 12px;
+  margin: 5px;
+  border-radius: 100%;
+  background-color: #a0aec0;
+}
+
+.slick-dots li.slick-active button,
+.hero-slick-dots li.slick-active button {
+  background-color: #4a5568;
+  width: 12px;
+  height: 12px;
+}
+
+.posts-slick .slick-slide.slick-active + :not(.slick-active) {
+  opacity: 0;
+  transform: scale(0.7);
+}
+
+.posts-slick .slick-slide {
+  transition: all 600ms ease;
+  opacity: 1;
+  transform: scale(1);
+  transform-origin: left;
+}
+
+.slick-dots li button::before,
+.hero-slick-dots li button::before {
+  display: none;
+}
+
+.slick-slide {
+  visibility: hidden;
+}
+
+.slick-slide.slick-active {
+  visibility: visible;
+}
+
+.slick-slide > div {
+  height: 100% !important;
+}

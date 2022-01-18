@@ -1,0 +1,39 @@
+.content p,
+.content ul {
+  color: #4a5568;
+  font-size: 1.25rem;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.content h2 {
+  color: #2d3748 !important;
+  line-height: 1.33;
+  font-weight: bold;
+  margin: 2rem 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.content ul {
+  padding: 0px;
+  margin: 0px 0px 2rem 1rem;
+  list-style-position: outside;
+  list-style-image: none;
+}
+
+.content ul li {
+  position: relative;
+}
+
+.content ul li:before {
+  content: '';
+  height: 6px;
+  width: 6px;
+  border-radius: 6px;
+  background-color: #4a5568;
+  display: block;
+  position: absolute;
+  top: 16px;
+  left: -14px;
+}
