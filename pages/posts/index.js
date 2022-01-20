@@ -13,6 +13,7 @@ import { Box, Button, Typography } from '@mui/material';
 import Layout from '../../components/Layout/Layout';
 
 import PostCard from '../../components/Card/PostCard';
+import Separator from '../../components/Separator/Separator';
 
 const AllPosts = ({ allPosts, endCursor, loadMore }) => {
   const [posts, setPosts] = useState(allPosts);
@@ -45,10 +46,17 @@ const AllPosts = ({ allPosts, endCursor, loadMore }) => {
             <PostCard key={post.id} display="post-page" post={post} cardVariant="post-page" />
           ))}
         </Box>
-        {error && <p>Error fetching post data</p>}
-        {loading && <p>Loading...</p>}
-        {!loading && canLoadMorePosts && <Button onClick={loadMoreHandler}>Load more</Button>}
-        {!canLoadMorePosts && <p>No more posts to load.</p>}
+        <Separator />
+        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+          {error && <Typography variant="theme-p3">Error fetching post data</Typography>}
+          {loading && <Typography variant="theme-p3">Loading...</Typography>}
+          {!loading && canLoadMorePosts && (
+            <Button variant="cb-contained" onClick={loadMoreHandler}>
+              Load more
+            </Button>
+          )}
+          {!canLoadMorePosts && <Typography variant="theme-p3">No more posts to load 😞</Typography>}
+        </Box>
       </Layout>
     </>
   );
