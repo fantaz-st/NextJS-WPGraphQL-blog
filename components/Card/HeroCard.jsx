@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Box, Button, Card, CardMedia, Typography } from '@mui/material';
 import Layout from '../Layout/Layout';
 
@@ -9,14 +10,13 @@ const HeroCard = ({ post: { slug, title, excerpt, categories, featuredImage } })
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column-reverse', sm: 'column-reverse', md: 'row', lg: 'row' }, gap: '3rem' }}>
           <Box
             sx={{
-              flexGrow: '1',
-              flexShrink: '1',
+              flexGrow: '0',
+              flexShrink: '0',
               width: '66.666%',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'center',
               alignItems: 'flex-start',
-              paddingRight: '3rem',
             }}
           >
             <Box>
@@ -44,8 +44,9 @@ const HeroCard = ({ post: { slug, title, excerpt, categories, featuredImage } })
                 component="img"
                 image={featuredImage?.node?.sourceUrl}
                 alt={title}
-                sx={{ height: '100%', width: '100%', objectFit: 'cover', objectPosition: 'center' }}
+                sx={{ height: '100%', width: '100%', objectFit: 'cover', objectPosition: 'center', maxHeight: '470px', maxWidth: '360px' }}
               />
+              {/* <Image src={featuredImage?.node?.sourceUrl} alt={title} objectFit="cover" width={3} height={4} layout="responsive" quality={100} /> */}
             </a>
           </Card>
         </Box>

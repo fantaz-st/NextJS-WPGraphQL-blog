@@ -29,7 +29,7 @@ export const cards = [
     props: { variant: 'post-page' },
     style: {
       ...cardBase,
-      flex: '1 0 calc(33.33% - 3rem)',
+      flex: '1',
       padding: '0.5rem',
     },
   },
@@ -64,5 +64,19 @@ export const cards = [
   {
     props: { variant: 'toc' },
     style: { padding: '2rem 4rem', borderRadius: '1rem', boxShadow: '1px 1px 5px 0 rgba(1,1,1,.05)' },
+  },
+  {
+    props: { variant: 'banner' },
+    style: {
+      padding: '0',
+      borderRadius: '1rem',
+      boxShadow: 'none',
+      display: 'flex',
+      padding: '4rem 1rem',
+      flex: '1',
+      gap: '2rem',
+      justifyContent: 'space-around',
+    },
+    // style: { padding: '0', borderRadius: '1rem', boxShadow: 'none', display: 'flex', height: '0', paddingBottom: '30%' },
   },
 ];

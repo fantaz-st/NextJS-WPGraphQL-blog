@@ -1,5 +1,45 @@
+export const postsQuery = (numberOfPosts = 6, endCursor = null) => {
+  return `query MyQuery {
+    posts(first:${numberOfPosts},after:"${endCursor}") {
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+      nodes {
+        id
+        title
+        link
+        slug
+        date
+        excerpt
+        categories {
+          nodes {
+            name
+            slug
+          }
+        }
+        featuredImage {
+          node {
+            sourceUrl
+          }
+        }
+        author {
+          node {
+            firstName
+          lastName
+          id
+          avatar {
+            url
+          }
+          }
+        }
+      }
+    }
+  }`;
+};
+
 export const allPostsQuery = `query MyQuery {
-    posts(first:6) {
+    posts(first:3) {
       nodes {
         id
         title
@@ -291,3 +331,25 @@ export const searchQuery = (searchTerm) => {
   }
   `;
 };
+
+export const altHomeQuery = `query MyQuery {
+  pageBy(uri: "/home-alt/") {
+    content
+  }
+}
+`;
+
+export const allBannersQuery = `query MyQuery {
+  posts(where: {categoryName: "banner"}) {
+    nodes {
+      title
+      excerpt
+      featuredImage {
+        node {
+          sourceUrl
+        }
+      }
+      slug
+    }
+  }
+}`;

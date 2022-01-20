@@ -40,11 +40,23 @@ export const typography = [
       marginBottom: '2rem',
     },
   },
+
   {
     props: { variant: 'theme-h3' },
     style: {
       ...heading,
       fontSize: '1.5rem',
+    },
+  },
+  {
+    props: { variant: 'theme-h3-banner' },
+    style: {
+      ...heading,
+      color: '#fff',
+      fontSize: '1.5rem',
+      textShadow: `0px 4px 3px rgba(0,0,0,0.4),
+      0px 8px 13px rgba(0,0,0,0.1),
+      0px 18px 23px rgba(0,0,0,0.1)`,
     },
   },
   {

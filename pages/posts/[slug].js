@@ -8,10 +8,10 @@ import PostContent from '../../components/Post/PostContent/PostContent';
 import PostTableOfContents from '../../components/Post/PostTableOfContents';
 
 const SinglePost = ({ data: { title, content, author, categories, date } }) => {
-  if (categories.nodes.some((cat) => cat.name === 'banner')) {
+  /* if (categories.nodes.some((cat) => cat.name === 'banner')) {
     console.log('banner');
     return <PostContent content={content} />;
-  }
+  } */
   return (
     <>
       <Layout>

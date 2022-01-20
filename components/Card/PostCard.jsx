@@ -46,7 +46,18 @@ const PostCard = ({ post: { date, title, slug, featuredImage, excerpt, author },
         },
       }}
     >
-      <CardMedia variant="cb1" component="img" height="240" image={featuredImage?.node?.sourceUrl} alt={title} />
+      <Box sx={{ borderRadius: '0.5rem', overflow: 'hidden' }}>
+        <Image
+          src={featuredImage?.node?.sourceUrl}
+          alt={title}
+          objectFit="cover"
+          width={5}
+          height={3}
+          layout="responsive"
+          quality={100}
+          loading="lazy"
+        />
+      </Box>
       <Box sx={{ marginTop: '1rem', padding: '0.5rem 1rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
         <Link href={`/posts/${slug}`} passHref>
           <a style={{ textDecoration: 'none' }}>
