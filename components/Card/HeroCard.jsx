@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Box, Button, Card, CardMedia, Typography } from '@mui/material';
-import Layout from '../Layout/Layout';
+
+import { Layout } from '../index';
 
 const HeroCard = ({ post: { slug, title, excerpt, categories, featuredImage } }) => {
   return (

@@ -1,8 +1,8 @@
 import Slider from 'react-slick';
 
 import { heroSlickSliderSettings } from '../../../helpers/settings';
-import HeroCard from '../../Card/HeroCard';
-import Layout from '../../Layout/Layout';
+
+import { HeroCard, Layout } from '../../index';
 
 const HeroSlickSlider = ({ posts }) => {
   return (

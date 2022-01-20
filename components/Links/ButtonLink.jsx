@@ -1,7 +1,6 @@
 import { Box, Typography, Card } from '@mui/material';
 import Link from 'next/link';
-import Layout from '../Layout/Layout';
-
+import { Layout } from '../index';
 import { BsNewspaper, BsFillBellFill, BsBook, BsExclamationCircle } from 'react-icons/bs';
 
 const buttonList = [

@@ -1,24 +1,24 @@
 import { fetchApi } from '../helpers/fetchApi';
-import { postsQuery, featuredPostsQuery, allBannersQuery } from '../helpers/queryLists';
+import { postsQuery } from '../helpers/queryLists';
 
-import PostsSlickSlider from '../components/PostsSlickSlider/PostsSlickSlider';
-import Separator from '../components/Separator/Separator';
-import Hero from '../components/Hero/Hero/Hero';
-import ButtonLink from '../components/Links/ButtonLink';
-import Banner from '../components/Banner/Banner';
+import { PostsSlickSlider, Separator, Hero, ButtonLink, Banner } from '../components/index';
 
-const Home = ({ posts, featured, banner }) => {
+const Home = ({ allPosts }) => {
+  const slickSliderPosts = allPosts.slice(0, 5);
+  const featuredPosts = allPosts.filter((post) => post.categories.nodes.some((cat) => cat.name.includes('featured')));
+  const bannerPosts = allPosts.filter((post) => post.categories.nodes.some((cat) => cat.name.includes('banner')));
+
   return (
     <>
       <ButtonLink />
       <Separator />
-      <Hero posts={featured} />
+      <Hero posts={featuredPosts} />
       <Separator />
-      {banner.length > 0 && <Banner bannerData={banner[0]} buttonText="Read more" textPosition="right" />}
+      {bannerPosts.length > 0 && <Banner bannerData={bannerPosts[0]} buttonText="Read more" textPosition="right" />}
       <Separator />
-      <PostsSlickSlider posts={posts} />
+      <PostsSlickSlider posts={slickSliderPosts} />
       <Separator />
-      {banner.length > 1 && <Banner bannerData={banner[1]} buttonText="Read more" textPosition="left" />}
+      {bannerPosts.length > 1 && <Banner bannerData={bannerPosts[1]} buttonText="Read more" textPosition="left" />}
     </>
   );
 };
@@ -26,15 +26,11 @@ const Home = ({ posts, featured, banner }) => {
 export default Home;
 
 export const getStaticProps = async () => {
-  const allPosts = await fetchApi(postsQuery.call(this, 5));
-  const featuredPosts = await fetchApi(featuredPostsQuery);
-  const banner = await fetchApi(allBannersQuery);
+  const allPosts = await fetchApi(postsQuery.call(this, null));
 
   return {
     props: {
-      posts: allPosts.posts.nodes,
-      featured: featuredPosts.posts.nodes,
-      banner: banner.posts.nodes,
+      allPosts: allPosts.posts.nodes,
     },
     revalidate: 60,
   };

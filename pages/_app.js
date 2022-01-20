@@ -13,9 +13,7 @@ import { ThemeProvider } from '@mui/material/styles';
 
 import customTheme from '../styles/theme/theme';
 
-import Navbar from '../components/Header/Navbar/Navbar';
-import Separator from '../components/Separator/Separator';
-import Footer from '../components/Footer/Footer';
+import { Navbar, Separator, Footer } from '../components/index';
 
 import NProgress from 'nprogress';
 

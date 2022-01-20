@@ -1,4 +1,4 @@
-import HeroSlickSlider from '../HeroSlickSlider/HeroSlickSlider';
+import { HeroSlickSlider } from '../../index';
 
 const Hero = ({ posts }) => {
   return <HeroSlickSlider posts={posts} />;

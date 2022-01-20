@@ -1,12 +1,9 @@
-import { AppBar, Box, Typography, Container } from '@mui/material';
-import Logo from '../Logo/Logo';
-
-import Link from 'next/link';
-import Search from '../Search/Search';
-
 import { useState } from 'react';
-import Checkbox from './Checkbox';
-import Layout from '../../Layout/Layout';
+import Link from 'next/link';
+
+import { AppBar, Box, Typography, Container } from '@mui/material';
+
+import { Logo, Search, Checkbox, Layout } from '../../index';
 
 const Navbar = ({ pages }) => {
   const [anchorElNav, setAnchorElNav] = useState(null);

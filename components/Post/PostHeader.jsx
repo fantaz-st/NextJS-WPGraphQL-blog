@@ -1,5 +1,5 @@
-import { Box, Typography, Button, Link } from '@mui/material';
 import Image from 'next/image';
+import { Box, Typography, Button, Link } from '@mui/material';
 
 import profilePicture from '../../assets/images/cb_profile.jpg';
 

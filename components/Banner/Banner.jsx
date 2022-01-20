@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import { Box, Typography, Card, Button } from '@mui/material';
-import Layout from '../Layout/Layout';
+import { Layout } from '../index';
 
 const Banner = ({ bannerData: { featuredImage, title, excerpt, slug }, textPosition = 'right', buttonText }) => {
   return (

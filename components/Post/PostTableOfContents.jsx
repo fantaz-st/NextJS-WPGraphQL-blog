@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
-import Layout from '../Layout/Layout';
+
+import { Layout } from '../index';
 
 import { Typography, Box, Card } from '@mui/material';
 

@@ -1,10 +1,8 @@
-import React from 'react';
-
 import Link from 'next/link';
 
 import { Box, Typography } from '@mui/material';
-import Logo from '../Header/Logo/Logo';
-import Layout from '../Layout/Layout';
+
+import { Logo, Layout } from '../index';
 
 const Footer = ({ links }) => {
   return (

@@ -1,9 +1,9 @@
+import { useRef } from 'react';
+import { useRouter } from 'next/router';
+
 import SearchIcon from '@mui/icons-material/Search';
 
 import { Box, TextField, InputAdornment } from '@mui/material';
-import { useRouter } from 'next/router';
-
-import { useRef } from 'react';
 
 const Search = () => {
   const searchInputRef = useRef();

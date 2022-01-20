@@ -1,8 +1,8 @@
 import { Box, Card, Typography } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
-import Layout from '../Layout/Layout';
+
+import { Layout } from '../index';
 
 const AuthorCard = ({ author }) => {
   return (

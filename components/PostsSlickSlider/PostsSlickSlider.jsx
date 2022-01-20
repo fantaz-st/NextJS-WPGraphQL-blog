@@ -1,11 +1,9 @@
 import Slider from 'react-slick';
 
-import PostCard from '../Card/PostCard';
-
 import { postSlickSliderSettings } from '../../helpers/settings';
-import Layout from '../Layout/Layout';
 import { Typography } from '@mui/material';
-import Separator from '../Separator/Separator';
+
+import { PostCard, Layout, Separator } from '../index';
 
 const PostsSlickSlider = ({ posts }) => {
   return (
