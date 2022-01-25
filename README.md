@@ -5,6 +5,18 @@
 The blog uses NextJS as a frontend and WPGraphQL to fetch data from Wordpress.
 Styling was done using Material UI and CSS modules.
 
+# Functionality
+
+The blog fetches posts data through a GraphQL endpoint in wordpress by getStaticProps and displays it in grids or in the sliders.
+Search works for posts and users.
+Clicking on the author name in the post opens the author page.
+Clicking on the category button in the post opens a post page with all the posts of that category.
+Banners are created when a "banner" category is added to he post.
+Page loading bar is displayed on every route change.
+All posts page has a "load more" functionality.
+Every post can be opened.
+Posts page automatically generates a table of contents link list.
+
 # Installation
 
 Clone the repo and run "npm i".
