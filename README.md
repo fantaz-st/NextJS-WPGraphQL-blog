@@ -1,9 +1,13 @@
 ## Blog project NextJs, GraphQL & Wordpress
 
+![FANTAZ blog by Čedomir Babić](./fantaz-blog.jpg?raw=true 'FANTAZ blog')
+
 # Technology
 
 The blog uses NextJS as a frontend and WPGraphQL to fetch data from Wordpress.
 Styling was done using Material UI and CSS modules.
+Sliders are using Slick slider.
+Route loading is using nprogress.
 
 # Functionality
 
@@ -13,7 +17,7 @@ Clicking on the author name in the post opens the author page.
 Clicking on the category button in the post opens a post page with all the posts of that category.
 Banners are created when a "banner" category is added to he post.
 Page loading bar is displayed on every route change.
-All posts page has a "load more" functionality.
+All posts page has a "load more" functionality whis fetches posts via a custom useFetch hook.
 Every post can be opened.
 Posts page automatically generates a table of contents link list.
 
