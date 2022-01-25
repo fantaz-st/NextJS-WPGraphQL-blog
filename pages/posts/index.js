@@ -9,7 +9,7 @@ import { postsQuery } from '../../helpers/queryLists';
 
 //
 
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Grid, Button, Typography } from '@mui/material';
 import Layout from '../../components/Layout/Layout';
 
 import PostCard from '../../components/Card/PostCard';
@@ -42,9 +42,11 @@ const AllPosts = ({ allPosts, endCursor, loadMore }) => {
         <Typography variant="theme-h2">All Posts</Typography>
         {/* <Box sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '1rem' }}> */}
         <Box sx={{ display: 'grid', gridGap: '0.5rem', gridTemplateColumns: { lg: 'repeat(3,1fr)', md: 'repeat(2,1fr)' } }}>
+          {/* <Grid container spacing={3}> */}
           {posts.map((post) => (
             <PostCard key={post.id} display="post-page" post={post} cardVariant="post-page" />
           ))}
+          {/* </Grid> */}
         </Box>
         <Separator />
         <Box sx={{ display: 'flex', justifyContent: 'center' }}>

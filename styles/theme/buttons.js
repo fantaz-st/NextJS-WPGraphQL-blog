@@ -4,7 +4,6 @@ export const buttons = [
   {
     props: { variant: 'cb-contained' },
     style: {
-      backgroundColor: 'red',
       fontSize: '0.75rem',
       fontWeight: '600',
       borderRadius: '0.5rem',

@@ -1,6 +1,11 @@
-import { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
+
+import ThemeContext from '../Store/theme-context';
 
 import { useRouter } from 'next/router';
+
+import Head from 'next/head';
+
 import '../styles/globals.css';
 import '../styles/reset.css';
 import '../styles/nprogress.css';
@@ -11,11 +16,12 @@ import '../styles/CardList.Slider.css';
 
 import { ThemeProvider } from '@mui/material/styles';
 
-import customTheme from '../styles/theme/theme';
+import { base, darkTheme, lightTheme } from '../styles/theme/theme';
 
 import { Navbar, Separator, Footer } from '../components/index';
 
 import NProgress from 'nprogress';
+import { ThemeContextProvider } from '../Store/theme-context';
 
 const pagesArr = [
   { id: '1', slug: '', title: 'Home' },
@@ -27,6 +33,8 @@ const pagesArr = [
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
+
+  const ctx = useContext(ThemeContext);
 
   useEffect(() => {
     const handleStart = (url) => {
@@ -47,12 +55,17 @@ function MyApp({ Component, pageProps }) {
     };
   }, [router]);
   return (
-    <ThemeProvider theme={customTheme}>
-      <Navbar pages={pagesArr} />
-      <Separator />
-      <Component {...pageProps} />
-      <Footer links={pagesArr} />
-    </ThemeProvider>
+    <ThemeContextProvider>
+      <ThemeProvider theme={base}>
+        <Head>
+          <title>FANTAZ Blog exercise</title>
+        </Head>
+        <Navbar pages={pagesArr} />
+        <Separator />
+        <Component {...pageProps} />
+        <Footer links={pagesArr} />
+      </ThemeProvider>
+    </ThemeContextProvider>
   );
 }
 

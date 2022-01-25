@@ -17,7 +17,7 @@ const Search = () => {
   };
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box>
       <form onSubmit={onSearchFormSubmit}>
         <TextField
           sx={{ backgroundColor: '#e2e8f0', borderRadius: '0.5rem', color: '#718096', padding: '0.5rem' }}

@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-import websiteLogo from '../../../assets/images/fantaz.png';
+import websiteLogo from '../../../assets/images/fantaz.svg';
 
 // eslint-disable-next-line react/display-name
 const Logo = React.forwardRef(({ href, websiteName }, ref) => {

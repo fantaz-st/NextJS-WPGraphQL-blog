@@ -1,57 +1,85 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+
 import Link from 'next/link';
 
-import { AppBar, Box, Typography, Container } from '@mui/material';
+import { AppBar, Box, Typography, Container, IconButton } from '@mui/material';
 
-import { Logo, Search, Checkbox, Layout } from '../../index';
+import { Logo, Search, /* Checkbox, */ Layout } from '../../index';
+import { TiThMenu } from 'react-icons/ti';
+import { BiSearch } from 'react-icons/bi';
+
+import classes from './Navbar.module.css';
 
 const Navbar = ({ pages }) => {
-  const [anchorElNav, setAnchorElNav] = useState(null);
-  const [anchorElUser, setAnchorElUser] = useState(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
+  const router = useRouter();
+  useEffect(() => {
+    const handleRouteChange = () => setMobileMenuOpen(false);
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
+    router.events.on('routeChangeStart', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange);
+    };
+  }, []);
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+  const toggleMobileMenu = () => setMobileMenuOpen((prevValue) => !prevValue);
+
   return (
-    <AppBar position="static" sx={{ backgroundColor: '#fff', boxShadow: 'none' }}>
-      <Container maxWidth="xl" sx={{ py: '2rem', height: '7rem' }}>
-        <Layout>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <Box sx={{ flexBasis: '25%', display: 'flex' }}>
-              <Link href="/" passHref>
-                <Logo websiteName="FANTAZ's blog" />
+    <>
+      {mobileMenuOpen && (
+        <Box className={classes.overlay}>
+          <Box className={classes.menu}>
+            <Search />
+            {pages.map((page) => (
+              <Link key={page.id} href={`/${page.slug}`} passHref>
+                <Typography ml="1rem" variant="theme-link-l">
+                  {page.title}
+                </Typography>
               </Link>
-            </Box>
-            <Box sx={{ flexBasis: '35%', display: { xs: 'none', md: 'flex' } }}>
-              <Search />
-            </Box>
-            <Box sx={{ flexBasis: '40%', display: { xs: 'none', md: 'flex' }, alignItems: 'center', justifyContent: 'flex-end', gap: '2rem' }}>
-              <Box sx={{ display: 'flex' }}>
-                {pages.map((page) => (
-                  <Link key={page.id} href={`/${page.slug}`} passHref>
-                    <Typography ml="1rem" variant="theme-link-m">
-                      {page.title}
-                    </Typography>
-                  </Link>
-                ))}
-              </Box>
-              <Checkbox />
-            </Box>
+            ))}
           </Box>
-        </Layout>
-      </Container>
-    </AppBar>
+        </Box>
+      )}
+
+      <AppBar position="static" className={classes.navbar}>
+        <Container maxWidth="xl" sx={{ py: '2rem', height: '7rem' }}>
+          <Layout>
+            <Box className={classes.content}>
+              <Box>
+                <Link href="/" passHref>
+                  <Logo websiteName="FANTAZ's blog" />
+                </Link>
+              </Box>
+              <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                <Search />
+              </Box>
+              <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', justifyContent: 'flex-end', gap: '2rem' }}>
+                <Box sx={{ display: 'flex' }}>
+                  {pages.map((page) => (
+                    <Link key={page.id} href={`/${page.slug}`} passHref>
+                      <Typography ml="1rem" variant="theme-link-m">
+                        {page.title}
+                      </Typography>
+                    </Link>
+                  ))}
+                </Box>
+                {/* <Checkbox /> */}
+              </Box>
+              <Box sx={{ display: { xs: 'flex', md: 'none' }, gap: '1rem' }}>
+                <IconButton aria-label="menu">
+                  <BiSearch />
+                </IconButton>
+                <IconButton aria-label="menu" onClick={toggleMobileMenu}>
+                  <TiThMenu />
+                </IconButton>
+              </Box>
+            </Box>
+          </Layout>
+        </Container>
+      </AppBar>
+    </>
   );
 };
 

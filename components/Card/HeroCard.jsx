@@ -13,39 +13,51 @@ const HeroCard = ({ post: { slug, title, excerpt, categories, featuredImage } })
             sx={{
               flexGrow: '0',
               flexShrink: '0',
-              width: '66.666%',
+              width: { md: '66.666%', xs: '100%' },
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'center',
               alignItems: 'flex-start',
+              padding: { md: '0', xs: '0 1rem' },
             }}
           >
             <Box>
-              {categories.nodes.map((category) => (
-                <Link key={category.name} href={`/category/${category.slug}`} passHref>
-                  <Typography variant="theme-link-button" sx={{ marginRight: '1rem', marginBottom: '1rem' }}>
-                    <a style={{ textDecoration: 'none' }}>{category.name}</a>
+              <Box>
+                {categories.nodes.map((category) => (
+                  <Link key={category.name} href={`/category/${category.slug}`} passHref>
+                    <Typography variant="theme-link-button" sx={{ marginRight: '1rem', marginBottom: '1rem' }}>
+                      <a style={{ textDecoration: 'none' }}>{category.name}</a>
+                    </Typography>
+                  </Link>
+                ))}
+              </Box>
+              <Link href={`/posts/${slug}`} passHref>
+                <a style={{ textDecoration: 'none' }}>
+                  <Typography variant="theme-h1" sx={{ fontSize: { md: '3rem', xs: '1.5rem' } }}>
+                    {title}
                   </Typography>
-                </Link>
-              ))}
+                </a>
+              </Link>
+              <Typography variant="theme-p1" sx={{ display: { md: 'block', xs: 'none' } }}>
+                <Box dangerouslySetInnerHTML={{ __html: excerpt }} />
+              </Typography>
             </Box>
-            <Link href={`/posts/${slug}`} passHref>
-              <a style={{ textDecoration: 'none' }}>
-                <Typography variant="theme-h1">{title}</Typography>
-              </a>
-            </Link>
-            <Typography variant="theme-p1">
-              <Box dangerouslySetInnerHTML={{ __html: excerpt }} />
-            </Typography>
           </Box>
-          <Card variant="card-hero">
+          <Card variant="card-hero" sx={{ display: 'flex', justifyContent: 'center' }}>
             <a href={`/posts/${slug}`}>
               <CardMedia
                 variant="cb-image-before"
                 component="img"
                 image={featuredImage?.node?.sourceUrl}
                 alt={title}
-                sx={{ height: '100%', width: '100%', objectFit: 'cover', objectPosition: 'center', maxHeight: '470px', maxWidth: '360px' }}
+                sx={{
+                  height: '100%',
+                  width: '100%',
+                  objectFit: 'cover',
+                  objectPosition: 'center',
+                  maxHeight: { md: '470px', xs: '360px' },
+                  maxWidth: '360px',
+                }}
               />
               {/* <Image src={featuredImage?.node?.sourceUrl} alt={title} objectFit="cover" width={3} height={4} layout="responsive" quality={100} /> */}
             </a>

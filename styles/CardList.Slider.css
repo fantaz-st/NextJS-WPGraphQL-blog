@@ -5,9 +5,14 @@
   /* height: 100%; */
 }
 
+.posts-slick .slick-track {
+  gap: 0.6em;
+}
+
 .slick-slide {
   height: inherit !important;
-  margin: 1.5rem 0.3rem;
+  margin: 1.5rem 0;
+  /* margin: 1.5rem 0.3rem; */
 }
 .hero-slick .slick-slide {
   transition: all 600ms ease-in-out;

@@ -15,13 +15,14 @@ const Banner = ({ bannerData: { featuredImage, title, excerpt, slug }, textPosit
               background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${featuredImage?.node?.sourceUrl})`,
               backgroundPosition: 'center',
               flexDirection: `${textPosition === 'right' ? 'row' : 'row-reverse'}`,
+              alignItems: 'center',
             }}
           >
             {/* <Image src={featuredImage?.node?.sourceUrl} alt={title} objectFit="cover" width={16} height={3} layout="responsive" quality={100} /> */}
             <Box sx={{ flexBasis: '50%' }}>
               <Typography variant="theme-h3-banner">{title}</Typography>
             </Box>
-            <Button variant="contained" sx={{ flexGrow: '0' }}>
+            <Button variant="contained" sx={{ height: '100%' }}>
               {buttonText}
             </Button>
           </Card>

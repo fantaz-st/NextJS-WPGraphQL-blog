@@ -1,7 +1,7 @@
 import { fetchApi } from '../helpers/fetchApi';
 import { postsQuery } from '../helpers/queryLists';
 
-import { PostsSlickSlider, Separator, Hero, ButtonLink, Banner } from '../components/index';
+import { PostsSlickSlider, Separator, Hero, /* ButtonLink, */ Banner } from '../components/index';
 
 const Home = ({ allPosts }) => {
   const slickSliderPosts = allPosts.slice(0, 5);
@@ -10,7 +10,7 @@ const Home = ({ allPosts }) => {
 
   return (
     <>
-      <ButtonLink />
+      {/* <ButtonLink /> */}
       <Separator />
       <Hero posts={featuredPosts} />
       <Separator />

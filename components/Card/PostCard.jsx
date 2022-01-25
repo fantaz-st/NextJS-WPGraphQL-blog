@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Card, CardMedia, Typography, Box } from '@mui/material';
+import { Card, Typography, Box } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
 

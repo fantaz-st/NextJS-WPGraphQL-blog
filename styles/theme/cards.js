@@ -51,9 +51,6 @@ export const cards = [
     props: { variant: 'card-hero' },
     style: {
       backgroundColor: 'transparent',
-      flexGrow: '0',
-      flexShrink: '0',
-      width: '33.333%',
       display: 'block',
     },
   },

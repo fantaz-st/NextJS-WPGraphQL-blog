@@ -56,7 +56,7 @@ const SlickArrowRight = () => {
 export const postSlickSliderSettings = {
   className: 'posts-slick',
   dots: true,
-  autoplay: true,
+  autoplay: false,
   infinite: true,
   slidesToShow: 3,
   slidesToScroll: 1,

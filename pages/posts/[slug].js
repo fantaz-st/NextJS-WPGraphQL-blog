@@ -8,10 +8,6 @@ import PostContent from '../../components/Post/PostContent/PostContent';
 import PostTableOfContents from '../../components/Post/PostTableOfContents';
 
 const SinglePost = ({ data: { title, content, author, categories, date } }) => {
-  /* if (categories.nodes.some((cat) => cat.name === 'banner')) {
-    console.log('banner');
-    return <PostContent content={content} />;
-  } */
   return (
     <>
       <Layout>
@@ -31,8 +27,7 @@ export const getStaticProps = async (ctx) => {
   const { params } = ctx;
   const { slug } = params;
 
-  const query = postContentQuery(slug);
-  const postData = await fetchApi(query);
+  const postData = await fetchApi(postContentQuery.call(this, slug));
 
   return {
     props: {
