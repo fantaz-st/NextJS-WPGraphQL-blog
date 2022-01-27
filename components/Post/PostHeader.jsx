@@ -1,5 +1,7 @@
 import Image from 'next/image';
-import { Box, Typography, Button, Link } from '@mui/material';
+
+import Link from 'next/link';
+import { Box, Typography } from '@mui/material';
 
 import profilePicture from '../../assets/images/cb_profile.jpg';
 
@@ -25,9 +27,11 @@ const PostHeader = ({ date, author, title, categories }) => {
     <Box mt="4rem" mb="2rem" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start' }}>
       <Box sx={{ display: 'block' }}>
         {categories.nodes.map((category) => (
-          <Button key={category.name} size="medium" variant="cb-contained" sx={{ marginRight: '1rem', marginBottom: '1rem' }}>
-            {category.name}
-          </Button>
+          <Link key={category.name} href={`/category/${category.slug}`} passHref>
+            <Typography variant="theme-link-button" sx={{ marginRight: '1rem', marginBottom: '1rem' }}>
+              <a style={{ textDecoration: 'none' }}>{category.name}</a>
+            </Typography>
+          </Link>
         ))}
       </Box>
       <Typography variant="theme-h2">{title}</Typography>
@@ -36,7 +40,7 @@ const PostHeader = ({ date, author, title, categories }) => {
           <Image src={profilePicture} height="40px" width="40px" alt="user profile" />
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-          <Link href={`/author/${author.node.id}`} sx={{ textDecoration: 'none' }}>
+          <Link href={`/author/${author.node.id}`} sx={{ textDecoration: 'none' }} passHref>
             <Typography gutterBottom variant="theme-link-m">
               {theAuthor}
             </Typography>

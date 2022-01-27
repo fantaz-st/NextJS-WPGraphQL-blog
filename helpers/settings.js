@@ -3,7 +3,7 @@ import { IconButton } from '@mui/material';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 const leftArrowStyle = {
-  left: '-15px',
+  left: '-45px',
   position: 'absolute',
   top: '50%',
   zIndex: '2',
@@ -15,7 +15,7 @@ const leftArrowStyle = {
   boxShadow: '-1px 1px 3px 0 rgba(1,1,1,.1)',
 };
 const rightArrowStyle = {
-  right: '-15px',
+  right: '-45px',
   position: 'absolute',
   top: '50%',
   zIndex: '2',
@@ -45,18 +45,10 @@ function SamplePrevArrow(props) {
   );
 }
 
-const SlickArrowRight = () => {
-  return (
-    <IconButton>
-      <FaChevronRight />
-    </IconButton>
-  );
-};
-
 export const postSlickSliderSettings = {
   className: 'posts-slick',
   dots: true,
-  autoplay: false,
+  autoplay: true,
   infinite: true,
   slidesToShow: 3,
   slidesToScroll: 1,

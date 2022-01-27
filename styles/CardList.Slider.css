@@ -38,13 +38,6 @@
   fill: red;
 }
 
-.slick-prev {
-  left: -15px;
-}
-.slick-next {
-  right: -15px;
-}
-
 .slick-dots {
   position: absolute;
   list-style: none;
@@ -59,15 +52,13 @@
   text-align: right;
 }
 .hero-slick-dots {
-  position: absolute;
+  position: relative;
   list-style: none;
   display: block;
-  text-align: center;
   padding: 0;
   margin: 0;
   width: 100%;
   bottom: 4rem;
-  padding-top: 0.5rem;
   text-align: left;
 }
 
@@ -133,4 +124,11 @@
 
 .slick-slide > div {
   height: 100% !important;
+}
+
+@media (max-width: 600px) {
+  .hero-slick-dots {
+    bottom: 0;
+    text-align: center;
+  }
 }

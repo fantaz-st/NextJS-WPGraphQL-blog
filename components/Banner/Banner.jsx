@@ -22,7 +22,7 @@ const Banner = ({ bannerData: { featuredImage, title, excerpt, slug }, textPosit
             <Box sx={{ flexBasis: '50%' }}>
               <Typography variant="theme-h3-banner">{title}</Typography>
             </Box>
-            <Button variant="contained" sx={{ height: '100%' }}>
+            <Button variant="contained" sx={{ height: '100%', display: { xs: 'none', md: 'flex' } }}>
               {buttonText}
             </Button>
           </Card>

@@ -1,6 +1,5 @@
 import { createTheme } from '@mui/material/styles';
 import { typography } from './typography';
-import { cardMedia } from './cardMedia';
 import { cards } from './cards';
 import { buttons } from './buttons';
 import { breakpoints } from './breakpoints';
@@ -13,9 +12,6 @@ export const base = createTheme({
     },
     MuiCard: {
       variants: cards,
-    },
-    MuiCardMedia: {
-      variants: cardMedia,
     },
     MuiTypography: {
       variants: typography,

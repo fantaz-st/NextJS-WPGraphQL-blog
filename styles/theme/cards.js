@@ -47,13 +47,7 @@ export const cards = [
       width: '100%',
     },
   },
-  {
-    props: { variant: 'card-hero' },
-    style: {
-      backgroundColor: 'transparent',
-      display: 'block',
-    },
-  },
+
   {
     props: { variant: 'article' },
     style: { padding: '4rem', borderRadius: '1rem', boxShadow: '1px 1px 5px 0 rgba(1,1,1,.05)' },

@@ -2,7 +2,9 @@ export { default as Banner } from './Banner/Banner';
 
 export { default as AuthorCard } from './Card/AuthorCard';
 export { default as HeroCard } from './Card/HeroCard';
-export { default as PostCard } from './Card/PostCard';
+export { default as PostCard } from './Card/PostCard/PostCard';
+
+export { default as CategoryButton } from './CategoryButton/CategoryButton';
 
 export { default as Footer } from './Footer/Footer';
 
@@ -11,8 +13,7 @@ export { default as Checkbox } from './Header/Navbar/Checkbox';
 export { default as Navbar } from './Header/Navbar/Navbar';
 export { default as Search } from './Header/Search/Search';
 
-export { default as Hero } from './Hero/Hero/Hero';
-export { default as HeroSlickSlider } from './Hero/HeroSlickSlider/HeroSlickSlider';
+export { default as Hero } from './Hero/Hero';
 
 export { default as Layout } from './Layout/Layout';
 

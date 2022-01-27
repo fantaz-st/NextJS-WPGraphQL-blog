@@ -3,11 +3,11 @@ import Slider from 'react-slick';
 import { postSlickSliderSettings } from '../../helpers/settings';
 import { Typography } from '@mui/material';
 
-import { PostCard, Layout, Separator } from '../index';
+import { PostCard, Separator } from '../index';
 
 const PostsSlickSlider = ({ posts }) => {
   return (
-    <Layout>
+    <>
       <Typography variant="theme-h3">Newest posts</Typography>
       <Separator />
       <Slider {...postSlickSliderSettings}>
@@ -15,7 +15,7 @@ const PostsSlickSlider = ({ posts }) => {
           <PostCard key={post.id} post={post} cardVariant="post-slick" />
         ))}
       </Slider>
-    </Layout>
+    </>
   );
 };
 

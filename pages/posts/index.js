@@ -9,11 +9,9 @@ import { postsQuery } from '../../helpers/queryLists';
 
 //
 
-import { Box, Grid, Button, Typography } from '@mui/material';
-import Layout from '../../components/Layout/Layout';
+import { Box, Button, Typography } from '@mui/material';
 
-import PostCard from '../../components/Card/PostCard';
-import Separator from '../../components/Separator/Separator';
+import { PostCard, Separator, Layout } from '../../components';
 
 const AllPosts = ({ allPosts, endCursor, loadMore }) => {
   const [posts, setPosts] = useState(allPosts);
@@ -37,37 +35,33 @@ const AllPosts = ({ allPosts, endCursor, loadMore }) => {
   };
 
   return (
-    <>
-      <Layout>
-        <Typography variant="theme-h2">All Posts</Typography>
-        {/* <Box sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '1rem' }}> */}
-        <Box sx={{ display: 'grid', gridGap: '0.5rem', gridTemplateColumns: { lg: 'repeat(3,1fr)', md: 'repeat(2,1fr)' } }}>
-          {/* <Grid container spacing={3}> */}
-          {posts.map((post) => (
-            <PostCard key={post.id} display="post-page" post={post} cardVariant="post-page" />
-          ))}
-          {/* </Grid> */}
-        </Box>
-        <Separator />
-        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-          {error && <Typography variant="theme-p3">Error fetching post data</Typography>}
-          {loading && <Typography variant="theme-p3">Loading...</Typography>}
-          {!loading && canLoadMorePosts && (
-            <Button variant="cb-contained" onClick={loadMoreHandler}>
-              Load more
-            </Button>
-          )}
-          {!canLoadMorePosts && <Typography variant="theme-p3">No more posts to load 😞</Typography>}
-        </Box>
-      </Layout>
-    </>
+    <Layout>
+      <Typography variant="theme-h2">All Posts</Typography>
+      <Box sx={{ display: 'grid', gridGap: '2rem 1rem', gridTemplateColumns: { md: 'repeat(3,1fr)', sm: 'repeat(2,1fr)' } }}>
+        {/* <Grid container spacing={3}> */}
+        {posts.map((post) => (
+          <PostCard key={post.id} display="post-page" post={post} cardVariant="post-page" />
+        ))}
+      </Box>
+      <Separator />
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        {error && <Typography variant="theme-p3">Error fetching post data</Typography>}
+        {loading && <Typography variant="theme-p3">Loading...</Typography>}
+        {!loading && canLoadMorePosts && (
+          <Button variant="cb-contained" onClick={loadMoreHandler}>
+            Load more
+          </Button>
+        )}
+        {!canLoadMorePosts && <Typography variant="theme-p3">No more posts to load 😞</Typography>}
+      </Box>
+    </Layout>
   );
 };
 
 export default AllPosts;
 
 export const getStaticProps = async () => {
-  const allPosts = await fetchApi(postsQuery.call(this, 3));
+  const allPosts = await fetchApi(postsQuery.call(this, 6));
 
   return {
     props: {

@@ -9,7 +9,6 @@ import PostCard from '../../components/Card/PostCard';
 import AuthorCard from '../../components/Card/AuthorCard';
 
 const Author = ({ data }) => {
-  console.log(data);
   return (
     <>
       <Layout>
